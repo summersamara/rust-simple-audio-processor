@@ -57,9 +57,9 @@ impl AudioStream {
 
 #[derive(Serialize, Deserialize, Clone, Copy, Default, Debug)]
 pub struct RmsData {
-    rms: f32,
-    last_rms: f32,
-    rms_peak: f32,
+    pub rms: f32,
+    pub last_rms: f32,
+    pub rms_peak: f32,
 }
 
 pub struct RmsProcessor {
@@ -133,8 +133,8 @@ impl RmsProcessor {
 
 #[derive(Serialize, Deserialize, Clone, Copy, Default, Debug)]
 pub struct PitchData {
-    pitch: f32,
-    last_pitch: f32,
+    pub pitch: f32,
+    pub last_pitch: f32,
 }
 
 pub struct PitchProcessor {
