@@ -67,11 +67,12 @@ pub struct RmsProcessor {
 }
 
 impl RmsProcessor {
-    pub fn new(frequency_limit: FrequencyLimit) -> Self {
+    pub fn new(low_freq_limit: f32, high_freq_limit: f32) -> Self {
         let (tx, rx) = mpsc::channel();
 
         thread::spawn(move || {
             let mut last_data = RmsData::default();
+            let frequency_limit = FrequencyLimit::Range(low_freq_limit, high_freq_limit);
             let stream = AudioStream::new();
 
             loop {

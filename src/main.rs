@@ -1,12 +1,9 @@
-
-use spectrum_analyzer::FrequencyLimit;
-
 use lib::{RmsProcessor, PitchProcessor};
 
 mod lib;
 
 pub fn main() {
-    let rms_proc = RmsProcessor::new(FrequencyLimit::Range(20.0, 20000.0));
+    let rms_proc = RmsProcessor::new(20.0, 20000.0);
     let pitch_proc = PitchProcessor::new(None);
 
     loop {
